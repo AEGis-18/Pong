@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://c77qoj67fwkak"]
 
-[ext_resource type="Script" path="res://main.gd" id="1_fhxtv"]
-[ext_resource type="PackedScene" uid="uid://cbml1by47q5ha" path="res://hud.tscn" id="1_my1b7"]
-[ext_resource type="PackedScene" uid="uid://db638n3p6tw8l" path="res://Jugador.tscn" id="3_0fjix"]
-[ext_resource type="Texture2D" uid="uid://bqnlhvpfxpgah" path="res://icon.svg" id="4_guknn"]
-[ext_resource type="Script" path="res://Pelota.gd" id="5_8oxgl"]
+[ext_resource type="Script" path="res://Pong code/main.gd" id="1_gysqw"]
+[ext_resource type="PackedScene" uid="uid://cbml1by47q5ha" path="res://Pong code/hud.tscn" id="2_57cst"]
+[ext_resource type="PackedScene" uid="uid://db638n3p6tw8l" path="res://Pong code/Jugador.tscn" id="3_ofioo"]
+[ext_resource type="Script" path="res://Pong code/Pelota.gd" id="4_1wtro"]
+[ext_resource type="Texture2D" uid="uid://bqnlhvpfxpgah" path="res://Pong code/icon.svg" id="5_gggyd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kbf2n"]
 size = Vector2(81.0625, 647)
@@ -21,15 +21,15 @@ radius = 15.0
 size = Vector2(1222.5, 46)
 
 [node name="Main" type="Node"]
-script = ExtResource("1_fhxtv")
+script = ExtResource("1_gysqw")
 
-[node name="HUD" parent="." instance=ExtResource("1_my1b7")]
+[node name="HUD" parent="." instance=ExtResource("2_57cst")]
 
-[node name="Jugador" parent="." instance=ExtResource("3_0fjix")]
+[node name="Jugador" parent="." instance=ExtResource("3_ofioo")]
 position = Vector2(2, 5)
 id = "1"
 
-[node name="Jugador2" parent="." instance=ExtResource("3_0fjix")]
+[node name="Jugador2" parent="." instance=ExtResource("3_ofioo")]
 position = Vector2(1134, 9)
 id = "2"
 
@@ -53,7 +53,7 @@ physics_material_override = SubResource("PhysicsMaterial_qs058")
 gravity_scale = 0.0
 contact_monitor = true
 lock_rotation = true
-script = ExtResource("5_8oxgl")
+script = ExtResource("4_1wtro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota"]
 shape = SubResource("CircleShape2D_hsj2r")
@@ -61,7 +61,7 @@ shape = SubResource("CircleShape2D_hsj2r")
 [node name="Sprite2D" type="Sprite2D" parent="Pelota"]
 modulate = Color(100, 100, 100, 1)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("4_guknn")
+texture = ExtResource("5_gggyd")
 
 [node name="Pared" type="StaticBody2D" parent="."]
 position = Vector2(610, 649)

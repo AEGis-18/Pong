@@ -17,7 +17,7 @@ func nuevo_juego():
 	
 	$HUD/CuentaAtras.hide()
 	$HUD/CuentaAtras2.hide()
-	$Pelota.position=Vector2(1150/2,640/2)
+	$Pelota.position=Vector2(1150.0/2,640.0/2)
 
 
 func _ready():

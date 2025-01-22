@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://cbml1by47q5ha"]
 
-[ext_resource type="Script" path="res://hud.gd" id="1_yihns"]
+[ext_resource type="Script" path="res://Pong code/hud.gd" id="1_4er4p"]
 
 [node name="HUD" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_yihns")
+script = ExtResource("1_4er4p")
 
 [node name="Fondo" type="ColorRect" parent="."]
 layout_mode = 0
@@ -20,9 +20,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 267.5
+offset_left = 842.5
 offset_top = 10.0
-offset_right = 339.5
+offset_right = 914.5
 offset_bottom = 36.0
 grow_horizontal = 2
 text = "Puntos: 0"
@@ -32,9 +32,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = 842.5
+offset_left = 267.5
 offset_top = 10.0
-offset_right = 914.5
+offset_right = 339.5
 offset_bottom = 36.0
 grow_horizontal = 2
 text = "Puntos: 0"
