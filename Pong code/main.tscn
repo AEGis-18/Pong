@@ -10,12 +10,15 @@
 size = Vector2(81.0625, 647)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qs058"]
+friction = 0.0
 bounce = 1.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hsj2r"]
 radius = 15.0
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qmod7"]
+friction = 0.0
+bounce = 0.5
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_csptv"]
 size = Vector2(1222.5, 46)
