@@ -1,0 +1,83 @@
+[gd_scene load_steps=11 format=3 uid="uid://c77qoj67fwkak"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_fhxtv"]
+[ext_resource type="PackedScene" uid="uid://cbml1by47q5ha" path="res://hud.tscn" id="1_my1b7"]
+[ext_resource type="PackedScene" uid="uid://db638n3p6tw8l" path="res://Jugador.tscn" id="3_0fjix"]
+[ext_resource type="Texture2D" uid="uid://bqnlhvpfxpgah" path="res://icon.svg" id="4_guknn"]
+[ext_resource type="Script" path="res://Pelota.gd" id="5_8oxgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kbf2n"]
+size = Vector2(81.0625, 647)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qs058"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hsj2r"]
+radius = 15.0
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qmod7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_csptv"]
+size = Vector2(1222.5, 46)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_fhxtv")
+
+[node name="HUD" parent="." instance=ExtResource("1_my1b7")]
+
+[node name="Jugador" parent="." instance=ExtResource("3_0fjix")]
+position = Vector2(2, 5)
+id = "1"
+
+[node name="Jugador2" parent="." instance=ExtResource("3_0fjix")]
+position = Vector2(1134, 9)
+id = "2"
+
+[node name="CanchaJ1" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanchaJ1"]
+position = Vector2(1192, 322)
+shape = SubResource("RectangleShape2D_kbf2n")
+
+[node name="CanchaJ2" type="Area2D" parent="."]
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanchaJ2"]
+position = Vector2(-40, 322)
+shape = SubResource("RectangleShape2D_kbf2n")
+
+[node name="Pelota" type="RigidBody2D" parent="."]
+position = Vector2(-575, 323)
+physics_material_override = SubResource("PhysicsMaterial_qs058")
+gravity_scale = 0.0
+contact_monitor = true
+lock_rotation = true
+script = ExtResource("5_8oxgl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelota"]
+shape = SubResource("CircleShape2D_hsj2r")
+
+[node name="Sprite2D" type="Sprite2D" parent="Pelota"]
+modulate = Color(100, 100, 100, 1)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_guknn")
+
+[node name="Pared" type="StaticBody2D" parent="."]
+position = Vector2(610, 649)
+physics_material_override = SubResource("PhysicsMaterial_qmod7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared"]
+position = Vector2(-28, 21)
+shape = SubResource("RectangleShape2D_csptv")
+
+[node name="Pared2" type="StaticBody2D" parent="."]
+position = Vector2(568, -28)
+physics_material_override = SubResource("PhysicsMaterial_qmod7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pared2"]
+position = Vector2(4, 6)
+shape = SubResource("RectangleShape2D_csptv")
+
+[connection signal="body_entered" from="CanchaJ1" to="." method="_on_cancha_j_1_body_entered"]
+[connection signal="body_entered" from="CanchaJ2" to="." method="_on_cancha_j_2_body_entered"]

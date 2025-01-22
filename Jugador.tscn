@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://db638n3p6tw8l"]
+
+[ext_resource type="Script" path="res://Jugador.gd" id="1_xbrrc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7iiov"]
+size = Vector2(17, 137)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+disable_mode = 1
+script = ExtResource("1_xbrrc")
+velocidad = 800
+
+[node name="Raqueta" type="Polygon2D" parent="."]
+scale = Vector2(1.42788, 3.76363)
+polygon = PackedVector2Array(0, 0, 10, 0, 10, 33, 4.75, 33, 0, 33)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(8.5, 62.5)
+shape = SubResource("RectangleShape2D_7iiov")
